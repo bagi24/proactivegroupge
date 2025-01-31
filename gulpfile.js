@@ -3,7 +3,7 @@ const { src, dest, parallel, series, watch } = require('gulp');
 // Load plugins
 const terser = require('gulp-terser');
 const rename = require('gulp-rename');
-const gulpSass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-sass')(require('sass'));
 
 const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
@@ -32,14 +32,14 @@ const SRC_FONT = `${SRC}scss/font/`;
 
 // Clean assets
 function clear() {
-  return src(`${DEST}/*`, {
-    read: false,
-  }).pipe(clean({ force: true }));
+  return src(`${DEST}/*`, { read: false }).pipe(clean({ force: true }));
 }
+
 //font function
 function font() {
   return src(`${SRC_FONT}*`).pipe(dest(DEST_FONT));
 }
+
 // html function
 function html() {
   const source = `${SRC}*.html`;
@@ -69,13 +69,16 @@ function js() {
 }
 
 // CSS function
-// CSS function
 function css() {
   const source = SRC_CSS;
 
   return src(source)
     .pipe(changed(source))
-    .pipe(gulpSass()) // შეცვლილია!
+    .pipe(
+      sass({
+        includePaths: ['node_modules'],
+      })
+    )
     .pipe(
       autoprefixer({
         overrideBrowserslist: ['last 2 versions'],
@@ -96,6 +99,7 @@ function css() {
 function img() {
   return src(`${SRC_IMG}*`).pipe(webp()).pipe(imagemin()).pipe(dest(DEST_IMG));
 }
+
 // Copy Favicon.ico
 function favico() {
   return src(`${SRC}*.ico`).pipe(dest(DEST));
@@ -111,6 +115,7 @@ function watchFiles() {
   watch(`${SRC}*.ico`, favico);
   watch(`${SRC}lang`, html);
 }
+
 // BrowserSync
 function browserSync() {
   browsersync.init({
@@ -122,5 +127,6 @@ function browserSync() {
 }
 
 // Tasks to define the execution of the functions simultaneously or in series
+exports.clear = clear; // ექსპორტირებული clear დავალება
 exports.watch = series(clear, parallel(js, css, img, html, font, favico, watchFiles, browserSync));
 exports.default = series(clear, parallel(js, css, img, html, font, favico));

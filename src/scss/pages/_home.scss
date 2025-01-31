@@ -1,0 +1,285 @@
+/* --------- SLIDER --------- */
+
+.swiper-section {
+  display: flex;
+  justify-content: center;
+  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  .swiper-button-next,
+  .swiper-button-prev {
+    z-index: 2;
+    top: 45%;
+    color: $color-grey-light-2;
+    @include respond(phone) {
+      display: none;
+    }
+  }
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  // .front-textimg{
+  // //  transition: transform 0.9s, opacity 0.9s;
+
+  // }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #fff;
+    width: 100%;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  #cover1 {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(black, 0.4),
+        rgba(rgb(69, 77, 94), 0.4)
+      ),
+      url(/img/back1.webp);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-color: rgb(107, 102, 102);
+    background-size: cover;
+  }
+  #cover2 {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(black, 0.4),
+        rgba(rgb(69, 77, 94), 0.4)
+      ),
+      url(/img/back2.webp);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-color: rgb(107, 102, 102);
+    background-size: cover;
+  }
+  #cover3 {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(black, 0.4),
+        rgba(rgb(69, 77, 94), 0.4)
+      ),
+      url(/img/back3.webp);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-color: rgb(107, 102, 102);
+    background-size: cover;
+  }
+
+  .swiper-pagination {
+    margin-bottom: 20px;
+  }
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(223, 223, 223);
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $color-grey-light-2;
+  }
+}
+
+/* --------- INFO SECTION --------- */
+
+.info-section {
+  .container {
+    .briefinfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      &__box {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: rosybrown;
+        max-width: 412px;
+        height: 352px;
+        border-radius: 76px;
+        color: $color-grey-light-2;
+        transition: transform 0.9s, opacity 0.9s;
+        p {
+          font-weight: bold;
+          font-size: $default-font-size;
+          margin: 1rem 0;
+        }
+        h2 {
+          font-weight: normal;
+          font-size: $default-font-size;
+          width: 83%;
+          height: 175px;
+        }
+      }
+      &__icon {
+        width: 75px;
+      }
+      &__box:nth-child(1) {
+        background-color: #f16726;
+      }
+      &__box:nth-child(2) {
+        background-color: #75bf44;
+      }
+      &__box:nth-child(3) {
+        background-color: #eb0c8b;
+      }
+    }
+  }
+}
+
+/* --------- SPONSORS SECTION --------- */
+.sponsors-section {
+  position: relative;
+  overflow: none;
+  width: 100%;
+  .quote-container {
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    overflow: hidden;
+    cursor: pointer;
+
+    .swiper-wrapper {
+      align-items: center;
+    }
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      figure {
+        padding-top: 2rem;
+        #sponsor-logo {
+          width: 100px;
+        }
+      }
+
+      .name {
+        margin: 15px 0;
+        color: $mainblue;
+        font-weight: 500;
+      }
+      .review {
+        width: 80%;
+        font-style: italic;
+        height: 240px;
+      }
+    }
+  }
+  .swiper-pagination {
+    top: 300px;
+    z-index: 1;
+    @include respond(phone) {
+      top: 319px;
+    }
+
+    @media only screen and (max-width: 380px) {
+      top: 369px;
+    }
+  }
+}
+
+/* --------- PROGRESS SECTION --------- */
+.progress-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 0.9s, opacity 0.9s;
+    img {
+      width: 13rem;
+    }
+    .number {
+      color: #f16726;
+      font-size: 6rem;
+      font-weight: 700;
+      margin: 4rem 0;
+    }
+    .name {
+      font-weight: bold;
+      font-size: 2.7rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/* --------- MISSION SECTION --------- */
+.mission-section {
+  background: linear-gradient(
+      to right bottom,
+      rgba(black, 0.5),
+      rgba(rgb(69, 77, 94), 0.5)
+    ),
+    url(/img/mission_img.webp);
+  height: 93.7rem;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  @include respond(phone) {
+    height: 75rem;
+  }
+  .title {
+    font-size: 4rem;
+    color: $color-grey-light-2;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+  .subtitle {
+    color: $color-grey-light-2;
+    font-size: $default-font-size;
+    width: 60%;
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .swiper-section {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}

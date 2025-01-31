@@ -1,0 +1,123 @@
+@import 'abstracts/variable';
+@import 'abstracts/mixins';
+
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+@import 'base/animations';
+
+@import 'layout/flexbox';
+@import 'layout/footer';
+@import 'layout/header';
+@import 'layout/navigation';
+
+@import 'components/composition';
+@import 'components/socialMedia';
+@import 'components/miniSlide';
+@import 'components/button';
+
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/partners';
+@import 'pages/projects';
+
+@media all and (max-width: 603px) {
+  .partners_section {
+    .container {
+      .partners_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        figure {
+          padding: 20px 40px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// RESPONSIVE STYLES
+
+@include respond(phone) {
+  .partners_section {
+    .container {
+      .partners_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        figure {
+          padding: 20px 40px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond(tab-land) {
+  .info-section {
+    .container {
+      .briefinfo {
+        flex-direction: column;
+
+        &__box {
+          max-width: 100%;
+          height: auto;
+          padding: 40px 0;
+        }
+
+        &__box:nth-child(2) {
+          margin: 40px 0;
+        }
+      }
+    }
+  }
+}
+
+@include respond(tab-port) {
+  .progress {
+    width: 100%;
+    flex-direction: column;
+
+    &__box {
+      figure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        img {
+          width: 90px;
+        }
+      }
+      .number {
+        font-size: 50px;
+        margin: 30px 0;
+      }
+      .name {
+        font-size: 20px;
+      }
+    }
+
+    &__box:nth-child(2) {
+      margin: 50px 0;
+    }
+  }
+}
+
+@include respond(tab-port) {
+  .quotes_section {
+    .swiper-pagination {
+      margin-top: 15px;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import "./projects.scss";
+
+.about-section {
+  margin-top: 4rem;
+  .aboutus {
+    width: 100%;
+    .whatwedo {
+      margin-top: 4rem;
+      transition: transform 0.9s, opacity 0.9s;
+      @include respond(tab-land) {
+        margin-top: 2rem;
+      }
+      figure {
+        float: left;
+        width: 650px;
+        margin: 1rem 2rem 0 0;
+        transition: transform 0.9s, opacity 0.9s;
+
+        @include respond(tab-land) {
+          float: none;
+          width: 100%;
+          margin-bottom: 2rem;
+          margin-top: 0rem;
+        }
+      }
+      .text {
+        flex-direction: column;
+      }
+      .aboutus-img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1293px) {
+  .about-section {
+    .whatwedo {
+      flex-direction: column;
+      figure {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
